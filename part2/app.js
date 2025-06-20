@@ -31,7 +31,7 @@ db.connect(err => {
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
 
-    const query = 'SELECT * FROM Users WHERE username = ?';
+    const query = 'SELECT * FROM Users';
 
     db.query(query, [username], (err, results) => {
         if (err) {
