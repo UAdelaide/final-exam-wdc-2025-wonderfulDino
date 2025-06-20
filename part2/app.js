@@ -60,7 +60,7 @@ app.post('/login', (req, res) => {
 
             // Creating a cookie
             const date = new Date();
-            date.setTime(date.getTime() + (604800000)); // Cookie will expire in 7 days
+            date.setTime(date.getTime() + (604800000)); // 7 days
 
             res.cookie('username', results[0].username, {
                 expires: date,
