@@ -109,8 +109,6 @@ app.get('/dogList', async (req, res) => {
             Users.username AS owner_name
         FROM
             Dogs
-        JOIN
-            Users ON Dogs.owner_id = Users.user_id
     `);
     res.json(dogs);
   } catch (err) {
