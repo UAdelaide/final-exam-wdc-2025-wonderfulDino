@@ -104,9 +104,7 @@ app.get('/dogList', async (req, res) => {
 
     const [dogs] = await db.execute(`
         SELECT
-            Dogs.name AS dog_name,
-            Dogs.size AS size,
-            Users.username AS owner_name
+            *
         FROM
             Dogs
     `);
