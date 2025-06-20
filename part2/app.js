@@ -33,10 +33,15 @@ app.post('/login', (req, res) => {
 
     const query = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
 
+    console.log('Username:', username);
+    console.log('Password:', password);
+
     db.query(query, [username, password], (err, results) => {
         if (err) {
             return res.status(500).send('Database error.');
         }
+
+        console.log('Query Results:', results);
 
         if (results.length > 0) {
             res.send('Logined!');
