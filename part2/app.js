@@ -109,6 +109,8 @@ app.get('/dogList', async (req, res) => {
             Dogs
         JOIN
             Users ON Dogs.owner_id = Users.user_id
+        WHERE
+            
     `);
     res.json(dogs);
   } catch (err) {
