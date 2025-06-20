@@ -100,7 +100,7 @@ app.get('/logout', (req, res) => {
 // getting dog list
 app.get('/dogList', async (req, res) => {
   try {
-    const username = req.cookies.username;
+    //const username = req.cookies.username;
 
     const [dogs] = await db.execute(`
         SELECT
