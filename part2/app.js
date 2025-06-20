@@ -108,8 +108,6 @@ app.get('/dogList', async (req, res) => {
         return res.status(400).json({ error: 'No username cookie.' });
     }
 
-    //const username = 'alice123';
-
     const query = `
     SELECT
         Dogs.name AS dog_name,
