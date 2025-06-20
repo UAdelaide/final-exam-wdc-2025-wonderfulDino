@@ -121,7 +121,6 @@ app.get('/dogList', async (req, res) => {
         Users ON Dogs.owner_id = Users.user_id
     WHERE
         Users.username = ?
-
     `;
 
     db.query(query, [username], (err, results) => {
