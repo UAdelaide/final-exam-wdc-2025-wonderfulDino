@@ -187,7 +187,7 @@ app.get('/api/dogs', async (req, res) => {
             Users ON Dogs.owner_id = Users.user_id
         `;
 
-    db.query(query, [username], (err, results) => {
+    db.query(query, (err, results) => {
         if (err) {
             console.error('Error with dogList query.', err);
             return res.status(500).json({ error: 'Failed to fetch dogs, database query failed.' });
