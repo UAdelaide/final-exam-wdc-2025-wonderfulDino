@@ -133,6 +133,28 @@
         };
       }
     }).mount('#app');
+
+
+    function addOptions() {
+      const selectElement = document.getElementById("mySelect");
+
+      // Array of new options to be added
+      const newOptions = [
+        { value: "3", text: "Option 3" },
+        { value: "4", text: "Option 4" },
+        { value: "5", text: "Option 5" }
+      ];
+
+      // Loop through newOptions and add each option to the select
+      newOptions.forEach(optionData => {
+        const option = document.createElement("option");
+        option.value = optionData.value;
+        option.textContent = optionData.text;
+
+        // Append the new option to the select
+        selectElement.appendChild(option);
+      });
+    }
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
