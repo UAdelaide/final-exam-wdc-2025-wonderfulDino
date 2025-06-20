@@ -57,6 +57,7 @@ app.post('/login', (req, res) => {
         if (results.length === 1) {
             req.session.user = results[0].role;
 
+            // Redirecting to a page after being successful.
             if (results[0].role === 'owner') {
                 res.sendFile(path.join(__dirname, 'public', 'owner-dashboard.html'));
             } else if (results[0].role === 'walker') {
@@ -72,6 +73,7 @@ app.post('/login', (req, res) => {
     });
 });
 
+// Logging out
 app.get('/logout', (req, res) => {
     req.session.destroy((err) => {
         if (err) {
