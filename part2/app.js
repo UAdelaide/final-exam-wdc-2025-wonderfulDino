@@ -71,5 +71,14 @@ app.post('/login', (req, res) => {
     });
 });
 
+app.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            return res.send('Error logging out');
+        }
+        res.send('Logged out successfully');
+    });
+});
+
 // Export the app instead of listening here
 module.exports = app;
