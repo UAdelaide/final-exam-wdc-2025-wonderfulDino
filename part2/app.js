@@ -46,8 +46,12 @@ app.post('/login', (req, res) => {
         console.log('Query Results:', results);
 
         if (results.length == 1) {
-            if (results[0])
-            res.send('Logined!');
+            if (results[0].role === 'owner') {
+                res.send('Logined!');
+            } else {
+                
+            }
+
         } else {
             res.send('Invalid username or password.');
         }
