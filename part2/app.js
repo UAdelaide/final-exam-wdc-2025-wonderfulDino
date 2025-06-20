@@ -56,7 +56,6 @@ app.post('/login', (req, res) => {
         console.log('Query Results:', results);
 
         if (results.length === 1) {
-            req.session.user = results[0].role;
 
             // Creating a cookie
             const date = new Date();
