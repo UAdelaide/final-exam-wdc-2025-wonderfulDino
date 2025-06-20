@@ -34,8 +34,7 @@
       <thead>
         <tr>
           <th>Dog Name</th>
-          <th>Size</th>
-          <th>Owner</th>
+          <th>Image</th>
         </tr>
       </thead>
       <tbody>
@@ -71,7 +70,7 @@
 
           const dogNameCell = document.createElement('td');
 
-          dogNameCell.textContent = `<h2>${newOptions[i].dog_name}</h2> <p>${newOptions[i].size} size</p> <p> ${newOptions[i].owner_name} </p>`;
+          dogNameCell.innerHTML = `<h2>${newOptions[i].dog_name}</h2> <p>${newOptions[i].size} size</p> <p> ${newOptions[i].owner_name} </p>`;
 
           const sizeCell = document.createElement('td');
           sizeCell.textContent = "";
