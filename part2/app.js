@@ -37,6 +37,7 @@ app.use(session({
     cookie: { secure: false }
 }));
 
+// Login
 app.post('/login', (req, res) => {
     console.log('Request Body:', req.body);
     const { username, password } = req.body;
