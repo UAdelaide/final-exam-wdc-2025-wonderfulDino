@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
-const mysql = require('mysql');
+var mysql = require('mysql2/promise');
+const bodyParser = require('body-parser');
 
 const app = express();
 
