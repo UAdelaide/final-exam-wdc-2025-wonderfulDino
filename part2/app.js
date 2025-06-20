@@ -80,7 +80,7 @@ app.get('/logout', (req, res) => {
         if (err) {
             return res.send('Error logging out');
         }
-        res.send('Logged out successfully');
+        res.redirect('/');
     });
 });
 
