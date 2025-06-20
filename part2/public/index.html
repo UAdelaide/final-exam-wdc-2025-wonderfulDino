@@ -60,9 +60,9 @@
     async function addOptions() {
 
       try {
-        const selectElement = document.getElementById("dog-list");
+        const element = document.getElementById("dog-table").getElementsByTagName('tbody')[0];
 
-        const response = await fetch('/dogList');
+        const response = await fetch('/api/dog');
 
         const newOptions = await response.json();
 
@@ -71,7 +71,7 @@
           option.value = newOptions[i].dog_id;
           option.textContent = newOptions[i].dog_name;
 
-          selectElement.appendChild(option);
+          element.appendChild(option);
         }
       } catch (error) {
         console.error('Error adding options:', error);
