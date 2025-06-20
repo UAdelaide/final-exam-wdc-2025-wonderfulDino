@@ -29,6 +29,7 @@ db.connect(err => {
 });
 
 app.post('/login', (req, res) => {
+    console.log('Request Body:', req.body);
     const { username, password } = req.body;
 
     const query = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
