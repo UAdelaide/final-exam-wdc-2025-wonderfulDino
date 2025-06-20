@@ -45,9 +45,6 @@ app.post('/login', (req, res) => {
         }
 
     });
-
-
-
 });
 
 // Export the app instead of listening here
