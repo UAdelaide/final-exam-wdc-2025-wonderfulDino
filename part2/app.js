@@ -63,8 +63,9 @@ app.post('/login', (req, res) => {
             date.setTime(date.getTime() + (604800000)); // Cookie will expire in 7 days
 
             res.cookie('username', result[0].username, {
-                
-            })
+                expires: date,
+                httpOnly: true
+            });
 
             // Redirecting to a page after being successful.
             if (results[0].role === 'owner') {
