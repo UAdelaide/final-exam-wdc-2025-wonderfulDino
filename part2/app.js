@@ -137,6 +137,44 @@ app.get('/dogList', async (req, res) => {
   }
 });
 
+// getting dog list
+app.get('/dogList', async (req, res) => {
+  try {
+    const username = req.cookies.username;
+
+    if (!username) {
+        return res.status(400).json({ error: 'No username cookie.' });
+    }
+
+    const query = `
+        SELECT
+            Dogs.name AS dog_name,
+            Dogs.dog_id AS dog_id,
+            Dogs.size AS size,
+            Users.username AS owner_name
+        FROM
+            Dogs
+        JOIN
+            Users ON Dogs.owner_id = Users.user_id
+        WHERE
+            Users.username = ?
+        `;
+
+    db.query(query, [username], (err, results) => {
+        if (err) {
+            console.error('Error with dogList query.', err);
+            return res.status(500).json({ error: 'Failed to fetch dogs, database query failed.' });
+        }
+
+        res.json(results);
+
+    });
+
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch Dogs, code crashed.' });
+  }
+});
+
 
 // Export the app instead of listening here
 module.exports = app;
