@@ -67,6 +67,8 @@
         const newOptions = await response.json();
 
         for(let i = 0; i < newOptions.length; i++) {
+           const row = document.createElement('tr');
+           
           const option = document.createElement("option");
           option.value = newOptions[i].dog_id;
           option.textContent = newOptions[i].dog_name;
