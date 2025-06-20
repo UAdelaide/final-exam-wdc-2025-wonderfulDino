@@ -102,13 +102,15 @@ app.get('/dogList', async (req, res) => {
   try {
     const query = `
     SELECT
-            Dogs.name AS dog_name,
-            Dogs.size AS size,
-            Users.username AS owner_name
-        FROM
-            Dogs
-        JOIN
-            Users ON Dogs.owner_id = Users.user_id
+        Dogs.name AS dog_name,
+        Dogs.size AS size,
+        Users.username AS owner_name
+    FROM
+        Dogs
+    JOIN
+        Users ON Dogs.owner_id = Users.user_id
+    WHERE
+        Users.user_id = ?
     `;
 
     db.query(query, (err, results) => {
