@@ -100,7 +100,10 @@ app.get('/logout', (req, res) => {
 // getting dog list
 app.get('/dogList', async (req, res) => {
   try {
-    const query
+    const query = 'SELECT * FROM Dogs';
+
+    db.query()
+
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch Dogs' });
   }
