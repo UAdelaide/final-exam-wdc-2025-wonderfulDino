@@ -70,7 +70,9 @@
           const row = document.createElement('tr');
 
           const dogNameCell = document.createElement('td');
-          dogNameCell.textContent = newOptions[i].dog_name;
+
+
+          dogNameCell.htmlContent = `<h2>${newOptions[i].dog_name}`;
 
           const sizeCell = document.createElement('td');
           sizeCell.textContent = newOptions[i].size;
