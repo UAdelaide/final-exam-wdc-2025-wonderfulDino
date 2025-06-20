@@ -71,7 +71,7 @@
 
       const data = await response.json();
 
-      var element = document.getElementById(elementName);
+      //var element = document.getElementById(elementName);
 
       element.innerHTML = `<img src="${data.message}"/>`;
   }
@@ -94,7 +94,8 @@
           dogNameCell.innerHTML = `<h2>${newOptions[i].dog_name}</h2> <p>${newOptions[i].size} size</p> <p> ${newOptions[i].owner_name} </p>`;
 
           const sizeCell = document.createElement('td');
-          sizeCell = "";
+          fetchDogImage(sizeCell);
+          //sizeCell = "";
 
           const ownerCell = document.createElement('td');
           ownerCell.textContent = "";
