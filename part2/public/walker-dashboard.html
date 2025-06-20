@@ -61,6 +61,10 @@
           try {
               const response = await fetch('/api/users/me');
 
+              if (!response.ok) {
+                
+              }
+
               const users = await response.json();
 
               if (users && users.length > 0) {
@@ -70,6 +74,7 @@
               }
           } catch (error) {
               console.error('Error getting user, me:', error);
+              return null;
           }
         }
 
