@@ -41,6 +41,31 @@
         };
       }
     }).mount('#app');
+
+
+        // Add the dogs to the drop down.
+    async function addOptions() {
+
+      try {
+        const selectElement = document.getElementById("dog-list");
+
+        const response = await fetch('/dogList');
+
+        const newOptions = await response.json();
+
+        for(let i = 0; i < newOptions.length; i++) {
+          const option = document.createElement("option");
+          option.value = newOptions[i].dog_id;
+          option.textContent = newOptions[i].dog_name;
+
+          selectElement.appendChild(option);
+        }
+      } catch (error) {
+        console.error('Error adding options:', error);
+      }
+    }
+
+    addOptions();
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
