@@ -12,19 +12,21 @@
   <div id="app" class="container py-5">
     <h1 class="mb-4 text-primary">{{ message }}</h1>
 
-    <label for="username">Username</label><br>
-    <input type="text" id="username" name="username" required>
+    <form action="/login" method="POST">
+      <label for="username">Username</label><br>
+      <input type="text" id="username" name="username" required>
 
-    <br>
-    <br>
+      <br>
+      <br>
 
-    <label for="password">Password</label><br>
-    <input type="text" id="password" name="password" required>
+      <label for="password">Password</label><br>
+      <input type="text" id="password" name="password" required>
 
-    <br>
-    <br>
+      <br>
+      <br>
 
-    <button type="submit" class="btn btn-outline-success">Log in</button>
+      <button type="submit" class="btn btn-outline-success">Log in</button>
+    </form>
 
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
 
