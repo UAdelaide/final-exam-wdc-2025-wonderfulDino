@@ -47,9 +47,9 @@ app.post('/login', (req, res) => {
 
         if (results.length === 1) {
             if (results[0].role === 'owner') {
-                res.sendFile("owner-dashboard.html");
+                res.sendFile("/public/owner-dashboard.html");
             } else {
-                res.sendFile("walker-dashboard.html");
+                res.sendFile("/public/walker-dashboard.html");
             }
 
         } else {
