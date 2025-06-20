@@ -47,9 +47,9 @@ app.post('/login', (req, res) => {
 
         if (results.length == 1) {
             if (results[0].role === 'owner') {
-                res.send('Logined!');
+                res.sendFile("owner-dashboard.html");
             } else {
-                
+                res.sendFile("owner-dashboard.html");
             }
 
         } else {
