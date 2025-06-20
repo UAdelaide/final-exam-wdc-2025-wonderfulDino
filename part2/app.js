@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
-const mysql = require('mysql2/promise');
+const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
@@ -18,7 +18,7 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
-const db = await mysql.createConnection({
+const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
