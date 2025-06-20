@@ -135,10 +135,10 @@
     }).mount('#app');
 
 
-    function addOptions() {
+    async function addOptions() {
       const selectElement = document.getElementById("dog-list");
 
-      const newOptions = await 
+      const newOptions = await fetch('/dogList');
 
       newOptions.forEach(optionData => {
         const option = document.createElement("option");
