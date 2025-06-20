@@ -18,7 +18,9 @@ app.use('/api/users', userRoutes);
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
 
-    const query = ''
+    const query = 'SELECT * FROM User WHERE username = ? AND password = ?';
+
+    db.query()
 
 
 
