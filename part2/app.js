@@ -30,6 +30,13 @@ db.connect(err => {
     console.log('Connected to the DogWalkService database');
 });
 
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+}));
+
 app.post('/login', (req, res) => {
     console.log('Request Body:', req.body);
     const { username, password } = req.body;
