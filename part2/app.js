@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
+const mysql = require('mysql');
 
 const app = express();
 
@@ -14,6 +15,13 @@ const userRoutes = require('./routes/userRoutes');
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
+
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',  // your database username
+    password: '',  // your database password
+    database: 'DogWalkService' // your database name
+});
 
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
