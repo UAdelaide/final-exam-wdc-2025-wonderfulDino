@@ -54,8 +54,8 @@ app.post('/login', (req, res) => {
         console.log('Query Results:', results);
 
         if (results.length === 1) {
-            req.session.user = user;
-            
+            req.session.user = results[0].role;
+
             if (results[0].role === 'owner') {
                 res.sendFile(path.join(__dirname, 'public', 'owner-dashboard.html'));
             } else if (results[0].role === 'walker') {
