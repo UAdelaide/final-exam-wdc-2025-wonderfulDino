@@ -31,9 +31,9 @@ db.connect(err => {
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
 
-    const query = 'SELECT * FROM Users';
+    const query = 'SELECT * FROM Users WHERE username = ? AND password_hash = ?';
 
-    db.query(query, [username], (err, results) => {
+    db.query(query, [username, password], (err, results) => {
         if (err) {
             return res.status(500).send('Database error.');
         }
