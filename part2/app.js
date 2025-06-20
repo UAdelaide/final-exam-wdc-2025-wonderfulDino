@@ -18,7 +18,7 @@ const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 
 // getting the id of the user.
-app.get('/hello', async (req, res) => {
+app.get('/api/users/me', async (req, res) => {
   try {
     const username = req.cookies.username;
 
