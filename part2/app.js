@@ -137,8 +137,8 @@ app.get('/dogList', async (req, res) => {
   }
 });
 
-// getting dog list
-app.get('/dogList', async (req, res) => {
+// getting the id of the user.
+app.get('/api/users/me', async (req, res) => {
   try {
     const username = req.cookies.username;
 
@@ -148,12 +148,9 @@ app.get('/dogList', async (req, res) => {
 
     const query = `
         SELECT
-            Dogs.name AS dog_name,
-            Dogs.dog_id AS dog_id,
-            Dogs.size AS size,
-            Users.username AS owner_name
+            Users.user_id
         FROM
-            Dogs
+            Users
         JOIN
             Users ON Dogs.owner_id = Users.user_id
         WHERE
