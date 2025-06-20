@@ -26,7 +26,9 @@ app.post('/login', (req, res) => {
         }
 
         if (results.length > 0) {
-            res.send('Logined!')
+            res.send('Logined!');
+        } else {
+            res.send('Invalid username or password.');
         }
 
     });
