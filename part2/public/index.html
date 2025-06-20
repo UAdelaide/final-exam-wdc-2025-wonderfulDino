@@ -82,17 +82,10 @@
           row.appendChild(sizeCell);
           row.appendChild(ownerCell);
 
-          tableBody.appendChild(row);
-
-
-          const option = document.createElement("option");
-          option.value = newOptions[i].dog_id;
-          option.textContent = newOptions[i].dog_name;
-
-          element.appendChild(option);
+          element.appendChild(row);
         }
       } catch (error) {
-        console.error('Error adding options:', error);
+        console.error('Error adding table entries.', error);
       }
     }
 
