@@ -74,7 +74,15 @@
 
           dogNameCell.htmlContent = `<h2>${newOptions[i].dog_name}</h2> <p>${newOptions[i].size} size</p> <p> ${newOptions[i].owner_name} </p>`;
 
+          const sizeCell = document.createElement('td');
+          sizeCell.textContent = "";
+
+          const ownerCell = document.createElement('td');
+          ownerCell.textContent = ;
+
           row.appendChild(dogNameCell);
+          row.appendChild(sizeCell);
+          row.appendChild(ownerCell);
 
           element.appendChild(row);
         }
