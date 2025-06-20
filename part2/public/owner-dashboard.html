@@ -136,16 +136,23 @@
 
 
     async function addOptions() {
-      const selectElement = document.getElementById("dog-list");
 
-      const newOptions = await fetch('/dogList');
+      try {
+        const selectElement = document.getElementById("dog-list");
 
-      for(let i = 0; i < newOptions.length; i++) {
-        const option = document.createElement("option");
-        option.value = newOptions[i].dog_id;
-        option.textContent = newOptions[i].dog_name;
+        const response = await fetch('/dogList');
 
-        selectElement.appendChild(option);
+        const newOptions = await response.json();
+
+        for(let i = 0; i < newOptions.length; i++) {
+          const option = document.createElement("option");
+          option.value = newOptions[i].dog_id;
+          option.textContent = newOptions[i].dog_name;
+
+          selectElement.appendChild(option);
+        }
+      } catch (error) {
+        
       }
     }
 
