@@ -82,7 +82,7 @@ app.post('/login', (req, res) => {
 // Logging out
 app.get('/logout', (req, res) => {
 
-    res.clearCookie('');
+    res.clearCookie('username');
 
     req.session.destroy((err) => {
         if (err) {
