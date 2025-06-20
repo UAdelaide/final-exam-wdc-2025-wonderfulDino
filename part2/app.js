@@ -97,5 +97,8 @@ app.get('/logout', (req, res) => {
     });
 });
 
+// getting dog list
+app.get()
+
 // Export the app instead of listening here
 module.exports = app;
