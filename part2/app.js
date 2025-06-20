@@ -25,6 +25,7 @@ const db = mysql.createConnection({
     database: 'DogWalkService'
 });
 
+// Connecting Database
 db.connect(err => {
     if (err) throw err;
     console.log('Connected to the DogWalkService database');
