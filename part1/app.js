@@ -122,14 +122,14 @@ let db;
 })();
 
 // Route to return users as JSON
-app.get('/', async (req, res) => {
+/*app.get('/', async (req, res) => {
   try {
     const [users] = await db.execute('SELECT * FROM Users');
     res.json(users);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch Users' });
   }
-});
+});*/
 
 // Return a list of all dogs with their size and owner's username.
 app.get('/api/dogs', async (req, res) => {
@@ -181,24 +181,49 @@ app.get('/api/walkers/summary', async (req, res) => {
   try {
     const [walkrequests] = await db.execute(`
         SELECT
-            WalkRequests.request_id AS request_id,
-            Dogs.name AS dog_name,
-            WalkRequests.requested_time AS requested_time,
-            WalkRequests.duration_minutes AS duration_minutes,
-            WalkRequests.location AS location,
-            Users.username AS owner_username
+            Users.username AS walker_username,
+            COUNT(WalkRatings.rating) AS total_ratings,
+            AVG(WalkRatings.rating) AS average_ratings,
+            COUNT(*) AS completed_walks
         FROM
-            WalkRequests
+            Users
         JOIN
-            Dogs ON WalkRequests.dog_id = Dogs.dog_id
-        JOIN
-            Users ON Dogs.owner_id = Users.user_id
-        WHERE
-            WalkRequests.status = 'open'
+            WalkRatings ON WalkRatings.walker_id = Users.user_id
+        GROUP BY
+            Users.username;
     `);
     res.json(walkrequests);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch walkrequests' });
+  }
+});
+
+
+
+
+app.get('/api/dog-image', async (req, res) => {
+  try {
+    const response = await fetch("https://dog.ceo/api/breeds/image/random", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+
+    const data = await response.json();
+
+    if (data.status !== "success") {
+      // Log error or handle as you prefer
+      return res.status(data.error.status || 500).json({ error: data.error.message || "API Error." });
+    }
+
+    // Send JSON response directly to client
+    res.json(data);
+
+  } catch (err) {
+    console.error("Error in /api/dog-image:", err);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 

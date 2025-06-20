@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Express</title>
+    <title>Dog of the Day</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
     <h1>Dog of the day</h1>
-    <div id="dog-image"></div>
+
+    <!--Image, Breaks the rules of accessibility.-->
+    <div id="dog-image">No image</div>
+
+    <!--Text, breaks the rules of cognitive load.-->
+    <p>The giraffe is a large African hoofed mammal belonging to the genus Giraffa. It is the tallest living terrestrial animal and the largest ruminant on Earth. It is classified under the family Giraffidae, along with its closest extant relative, the okapi. Traditionally, giraffes have been thought of as one species, Giraffa camelopardalis, with nine subspecies. Most recently, researchers proposed dividing them into four extant species which can be distinguished by their fur coat patterns. Six valid extinct species of Giraffa are known from the fossil record. (Wikipedia)</p>
+
+    <!--Button, Breaks the rules of kinematic load.-->
+    <button type="button" style="margin-top:600px" onclick="location.reload()">Refresh Page</button>
+
 
     <script>
-        const response = await fetch("https://dog.ceo/api/breeds/image/random", {
-            method: 'GET',
-            headers: {
-                Authorization: 'Bearer ' + api_access_token,
-                'Content-Type': 'application/json'
+        async function fetchDogImage() {
+            const response = await fetch("/api/dog-image");
+
+            if (!response.ok) {
+            console.error("Search error:", response.statusText);
+            return;
             }
-        });
 
-        const data = await response.json();
+            const contentType = response.headers.get("content-type");
+            if (!contentType || !contentType.includes("application/json")) {
+            const errorText = await response.text();
+            console.error("Expected JSON but got:", errorText);
+            return;
+            }
 
-        var element = getElementById("dog-image");
+            const data = await response.json();
 
-        element.innerHTML = `<p>${data.message}</p>`;
+            var element = document.getElementById("dog-image");
+
+            element.innerHTML = `<img src="${data.message}"/>`;
+        }
+
+        fetchDogImage();
     </script>
 </body>
 </html>
