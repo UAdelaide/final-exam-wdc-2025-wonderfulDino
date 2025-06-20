@@ -157,8 +157,8 @@ app.get('/api/users/me', async (req, res) => {
 
     db.query(query, [username], (err, results) => {
         if (err) {
-            console.error('Error with dogList query.', err);
-            return res.status(500).json({ error: 'Failed to fetch dogs, database query failed.' });
+            console.error('Error with user query.', err);
+            return res.status(500).json({ error: 'Failed to fetch user, database query failed.' });
         }
 
         res.json(results);
@@ -166,7 +166,7 @@ app.get('/api/users/me', async (req, res) => {
     });
 
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch Dogs, code crashed.' });
+    res.status(500).json({ error: 'Failed to fetch User, code crashed.' });
   }
 });
 
