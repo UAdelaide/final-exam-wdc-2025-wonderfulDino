@@ -112,8 +112,9 @@ app.get('/dogList', async (req, res) => {
         JOIN
             Users ON Dogs.owner_id = Users.user_id
         WHERE
-            Users.username = ${username}
-    `);
+            Users.username = ?
+    `, [username]);
+
     res.json(dogs);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch Dogs' });
