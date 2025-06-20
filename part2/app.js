@@ -109,18 +109,18 @@ app.get('/dogList', async (req, res) => {
     }
 
     const query = `
-    SELECT
-        Dogs.name AS dog_name,
-        Dogs.dog_id AS dog_id,
-        Dogs.size AS size,
-        Users.username AS owner_name
-    FROM
-        Dogs
-    JOIN
-        Users ON Dogs.owner_id = Users.user_id
-    WHERE
-        Users.username = ?
-    `;
+        SELECT
+            Dogs.name AS dog_name,
+            Dogs.dog_id AS dog_id,
+            Dogs.size AS size,
+            Users.username AS owner_name
+        FROM
+            Dogs
+        JOIN
+            Users ON Dogs.owner_id = Users.user_id
+        WHERE
+            Users.username = ?
+        `;
 
     db.query(query, [username], (err, results) => {
         if (err) {
