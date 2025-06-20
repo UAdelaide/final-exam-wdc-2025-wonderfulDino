@@ -137,38 +137,7 @@ app.get('/dogList', async (req, res) => {
   }
 });
 
-// getting the id of the user.
-app.get('/hello', async (req, res) => {
-  try {
-    const username = req.cookies.username;
 
-    if (!username) {
-        return res.status(400).json({ error: 'No username cookie.' });
-    }
-
-    const query = `
-        SELECT
-            user_id
-        FROM
-            Users
-        WHERE
-            Users.username = ?
-        `;
-
-    db.query(query, [username], (err, results) => {
-        if (err) {
-            console.error('Error with user query.', err);
-            return res.status(500).json({ error: 'Failed to fetch user, database query failed.' });
-        }
-
-        res.json(results);
-
-    });
-
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch User, code crashed.' });
-  }
-});
 
 
 // Export the app instead of listening here
