@@ -72,17 +72,9 @@
           const dogNameCell = document.createElement('td');
 
 
-          dogNameCell.htmlContent = `<h2>${newOptions[i].dog_name}</h2> <p>${newOptions[i].size} size</p>`;
-
-          const sizeCell = document.createElement('td');
-          sizeCell.textContent = ;
-
-          const ownerCell = document.createElement('td');
-          ownerCell.textContent = newOptions[i].owner_name;
+          dogNameCell.htmlContent = `<h2>${newOptions[i].dog_name}</h2> <p>${newOptions[i].size} size</p> <p> ${newOptions[i].owner_name} </p>`;
 
           row.appendChild(dogNameCell);
-          row.appendChild(sizeCell);
-          row.appendChild(ownerCell);
 
           element.appendChild(row);
         }
