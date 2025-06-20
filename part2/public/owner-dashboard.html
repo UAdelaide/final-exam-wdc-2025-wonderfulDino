@@ -141,8 +141,8 @@
       const newOptions = await fetch('/dogList');
 
       for(let i = 0; i < newOptions.length; i++) {
-const option = document.createElement("option");
-        option.value = optionData.value;
+        const option = document.createElement("option");
+        option.value = newOptions[i].value;
         option.textContent = optionData.text;
 
         selectElement.appendChild(option);
