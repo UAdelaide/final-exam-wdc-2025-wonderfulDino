@@ -104,7 +104,8 @@ app.get('/dogList', async (req, res) => {
 
     db.query(query, (err, results) => {
         if (err) {
-            console.error()
+            console.error('Error with dogList query.', err);
+            return res.status(500)
         }
 
     });
