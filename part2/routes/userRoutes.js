@@ -57,7 +57,7 @@ router.post('/login', async (req, res) => {
 });
 
 // getting the id of the user.
-router.get('/me', async (req, res) => {
+router.get('/hello', async (req, res) => {
   try {
     const username = req.cookies.username;
 
