@@ -100,6 +100,8 @@ app.get('/logout', (req, res) => {
 // getting dog list
 app.get('/dogList', async (req, res) => {
   try {
+    const username = req.cookies.username;
+
     const query = `
     SELECT
         Dogs.name AS dog_name,
@@ -110,7 +112,7 @@ app.get('/dogList', async (req, res) => {
     JOIN
         Users ON Dogs.owner_id = Users.user_id
     WHERE
-        Users.user_id = ${}
+        Users.user_id = ${username}
     `;
 
     db.query(query, (err, results) => {
