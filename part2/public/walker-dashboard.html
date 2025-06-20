@@ -60,8 +60,8 @@
         async function getCurrentUser() {
           try {
               const response = await fetch('/api/users/me');
-          } catch {
-
+          } catch (error) {
+              console.error('Error adding options:', error);
           }
         }
 
