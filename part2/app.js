@@ -77,8 +77,8 @@ app.post('/login', (req, res) => {
 // Logging out
 app.get('/logout', (req, res) => {
 
-    res.clearCookie('cookieName');
-    
+    res.clearCookie('');
+
     req.session.destroy((err) => {
         if (err) {
             return res.send('Error logging out');
