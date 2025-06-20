@@ -203,6 +203,31 @@ app.get('/api/dogs', async (req, res) => {
 });
 
 
+app.get('/api/dog-image', async (req, res) => {
+  try {
+    const response = await fetch("https://dog.ceo/api/breeds/image/random", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+
+    const data = await response.json();
+
+    if (data.status !== "success") {
+      // Log error or handle as you prefer
+      return res.status(data.error.status || 500).json({ error: data.error.message || "API Error." });
+    }
+
+    // Send JSON response directly to client
+    res.json(data);
+
+  } catch (err) {
+    console.error("Error in /api/dog-image:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
 
 
 // Export the app instead of listening here
