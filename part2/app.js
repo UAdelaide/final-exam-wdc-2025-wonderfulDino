@@ -12,6 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -101,13 +102,13 @@ app.get('/logout', (req, res) => {
 // getting dog list
 app.get('/dogList', async (req, res) => {
   try {
-    /*const username = req.cookies.username;
+    const username = req.cookies.username;
 
     if (!username) {
         return res.status(400).json({ error: 'No username cookie.' });
-    }*/
+    }
 
-    const username = 'alice123';
+    //const username = 'alice123';
 
     const query = `
     SELECT
