@@ -59,9 +59,8 @@ app.post('/login', (req, res) => {
             req.session.user = results[0].role;
 
             const date = new Date();
-date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000)); // Cookie will expire in 7 days
-
-document.cookie = "username=JohnDoe; expires=" + date.toUTCString() + "; path=/; domain=example.com; secure; HttpOnly";
+            date.setTime(date.getTime() + (604800000)); // Cookie will expire in 7 days
+            document.cookie = "username=${}; expires=" + date.toUTCString() + "; path=/; domain=example.com; secure; HttpOnly";
 
             // Redirecting to a page after being successful.
             if (results[0].role === 'owner') {
