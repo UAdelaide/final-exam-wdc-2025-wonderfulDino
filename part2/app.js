@@ -138,7 +138,7 @@ app.get('/dogList', async (req, res) => {
 });
 
 // getting the id of the user.
-app.get('/api/users/me', async (req, res) => {
+app.get('/hello', async (req, res) => {
   try {
     const username = req.cookies.username;
 
