@@ -20,7 +20,10 @@ app.post('/login', (req, res) => {
 
     const query = 'SELECT * FROM User WHERE username = ? AND password = ?';
 
-    db.query()
+    db.query(query, [username, password], (err, results) }> {
+
+        
+    })
 
 
 
