@@ -22,7 +22,11 @@ app.post('/login', (req, res) => {
 
     db.query(query, [username, password], (err, results) => {
         if (err) {
-            return res.status(500).send()
+            return res.status(500).send('Database error.');
+        }
+
+        if (results.length > 0) {
+            res.send('Logined!')
         }
 
     });
