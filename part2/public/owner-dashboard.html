@@ -140,12 +140,16 @@
 
       const newOptions = await fetch('/dogList');
 
-      newOptions.forEach(optionData => {
-        const option = document.createElement("option");
+      for(let i = 0; i < newOptions.length; i++) {
+const option = document.createElement("option");
         option.value = optionData.value;
         option.textContent = optionData.text;
 
         selectElement.appendChild(option);
+      }
+
+      newOptions.forEach(optionData => {
+
       });
     }
 
