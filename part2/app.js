@@ -18,9 +18,14 @@ app.use('/api/users', userRoutes);
 
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'root',  // your database username
-    password: '',  // your database password
-    database: 'DogWalkService' // your database name
+    user: 'root',
+    password: '',
+    database: 'DogWalkService'
+});
+
+db.connect(err => {
+    if (err) throw err;
+    console.log('Connected to the DogWalkService database');
 });
 
 app.post('/login', (req, res) => {
