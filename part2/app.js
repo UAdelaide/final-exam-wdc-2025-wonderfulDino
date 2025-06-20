@@ -51,7 +51,7 @@ app.post('/login', (req, res) => {
             } else if (results[0].role === 'walker') {
                 res.sendFile(path.join(__dirname, 'public', 'walker-dashboard.html'));
             } else {
-                
+                res.send('Error, unknown role.');
             }
 
         } else {
