@@ -10,7 +10,15 @@
     <div id="dog-image"></div>
 
     <script>
-        
+        const response = await fetch("https://api.spotify.com/v1/search?" + search_url.toString(), {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + api_access_token,
+        'Content-Type': 'application/json'
+      }
+    });
+
+  const data = await response.json();
     </script>
 </body>
 </html>
