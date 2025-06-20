@@ -45,7 +45,7 @@ app.post('/login', (req, res) => {
 
         console.log('Query Results:', results);
 
-        if (results.length == 1) {
+        if (results.length === 1) {
             if (results[0].role === 'owner') {
                 res.sendFile("owner-dashboard.html");
             } else {
