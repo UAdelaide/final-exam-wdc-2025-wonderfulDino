@@ -68,12 +68,21 @@
 
         for(let i = 0; i < newOptions.length; i++) {
           const row = document.createElement('tr');
-          
+
           const dogNameCell = document.createElement('td');
           dogNameCell.textContent = dog.dog_name;
 
           const sizeCell = document.createElement('td');
           sizeCell.textContent = dog.size;
+
+          const ownerCell = document.createElement('td');
+          ownerCell.textContent = dog.owner_name;
+
+          row.appendChild(dogNameCell);
+          row.appendChild(sizeCell);
+          row.appendChild(ownerCell);
+
+          tableBody.appendChild(row);
 
 
           const option = document.createElement("option");
