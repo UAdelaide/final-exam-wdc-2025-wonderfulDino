@@ -112,7 +112,7 @@ app.get('/dogList', async (req, res) => {
     JOIN
         Users ON Dogs.owner_id = Users.user_id
     WHERE
-        Users.username = 'alice123'
+        Users.username = '?'
     `;
 
     db.query(query, (err, results) => {
