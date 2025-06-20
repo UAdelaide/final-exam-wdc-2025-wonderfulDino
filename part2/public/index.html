@@ -54,6 +54,27 @@
       }
     }).mount('#app');
 
+    async function fetchDogImage(element) {
+      const response = await fetch("/api/dog-image");
+
+      if (!response.ok) {
+      console.error("Search error:", response.statusText);
+      return;
+      }
+
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+      const errorText = await response.text();
+      console.error("Expected JSON but got:", errorText);
+      return;
+      }
+
+      const data = await response.json();
+
+      var element = document.getElementById(element);
+
+      element.innerHTML = `<img src="${data.message}"/>`;
+  }
 
         // Add the dogs to the drop down.
     async function addOptions() {
