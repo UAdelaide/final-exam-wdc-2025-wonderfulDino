@@ -134,7 +134,7 @@ app.get('/dogList', async (req, res) => {
     });
 
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch Dogs 2' });
+    res.status(500).json({ error: 'Failed to fetch Dogs, code crashed.' });
   }
 });
 
