@@ -18,7 +18,7 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
-const db = mysql.createConnection({
+const db = await mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
