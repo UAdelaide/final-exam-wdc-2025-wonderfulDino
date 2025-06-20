@@ -62,7 +62,7 @@
       try {
         const element = document.getElementById("dog-table").getElementsByTagName('tbody')[0];
 
-        const response = await fetch('/api/dog');
+        const response = await fetch('/api/dogs');
 
         const newOptions = await response.json();
 
