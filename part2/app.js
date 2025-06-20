@@ -113,6 +113,8 @@ app.get('/dogList', async (req, res) => {
     const query = `
     SELECT
         Dogs.name AS dog_name,
+        Dogs.size AS size,
+        Users.username AS owner_name
     FROM
         Dogs
     JOIN
