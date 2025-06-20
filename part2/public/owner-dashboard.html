@@ -21,7 +21,7 @@
           <div class="mb-3">
             <label class="form-label">Dog ID</label>
             <!--<input v-model="form.dog_id" type="number" class="form-control" required>-->
-            <select v-model="form.dog_id" class="form-control" required>
+            <select v-model="form.dog_id" class="form-control" id="dog-list" required>
               <option value="" disabled selected>Select a dog</option>
             </select>
           </div>
@@ -136,16 +136,14 @@
 
 
     function addOptions() {
-      const selectElement = document.getElementById("mySelect");
+      const selectElement = document.getElementById("dog-list");
 
-      // Array of new options to be added
       const newOptions = [
         { value: "3", text: "Option 3" },
         { value: "4", text: "Option 4" },
         { value: "5", text: "Option 5" }
       ];
 
-      // Loop through newOptions and add each option to the select
       newOptions.forEach(optionData => {
         const option = document.createElement("option");
         option.value = optionData.value;
