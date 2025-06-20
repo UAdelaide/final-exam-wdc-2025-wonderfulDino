@@ -102,7 +102,12 @@ app.get('/dogList', async (req, res) => {
   try {
     const query = 'SELECT * FROM Dogs';
 
-    db.query()
+    db.query(query, (err, results) => {
+        if (err) {
+            console.error()
+        }
+
+    });
 
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch Dogs' });
