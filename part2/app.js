@@ -126,7 +126,7 @@ app.get('/dogList', async (req, res) => {
     db.query(query, [username], (err, results) => {
         if (err) {
             console.error('Error with dogList query.', err);
-            return res.status(500).json({ error: 'Failed to fetch dogs 1' });
+            return res.status(500).json({ error: 'Failed to fetch dogs, database query failed.' });
         }
 
         res.json(results);
