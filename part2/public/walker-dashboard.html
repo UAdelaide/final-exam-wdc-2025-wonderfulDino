@@ -62,7 +62,7 @@
               const response = await fetch('/api/users/me');
 
               if (!response.ok) {
-                
+                throw new Error(`Error: ${response.statusText}`);
               }
 
               const users = await response.json();
