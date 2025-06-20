@@ -138,11 +138,7 @@
     function addOptions() {
       const selectElement = document.getElementById("dog-list");
 
-      const newOptions = [
-        { value: "3", text: "Option 3" },
-        { value: "4", text: "Option 4" },
-        { value: "5", text: "Option 5" }
-      ];
+      const newOptions = await 
 
       newOptions.forEach(optionData => {
         const option = document.createElement("option");
