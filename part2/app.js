@@ -148,11 +148,9 @@ app.get('/api/users/me', async (req, res) => {
 
     const query = `
         SELECT
-            Users.user_id
+            user_id
         FROM
             Users
-        JOIN
-            Users ON Dogs.owner_id = Users.user_id
         WHERE
             Users.username = ?
         `;
