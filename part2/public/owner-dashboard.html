@@ -142,8 +142,8 @@
 
       for(let i = 0; i < newOptions.length; i++) {
         const option = document.createElement("option");
-        option.value = newOptions[i].value;
-        option.textContent = optionData.text;
+        option.value = newOptions[i].dog_id;
+        option.textContent = newOptions[i].dog_name;
 
         selectElement.appendChild(option);
       }
